@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const healthLogSchema = new mongoose.Schema({
   diagnosisByModel: {
@@ -38,4 +38,12 @@ export const createHealthLog = (values) => {
       console.error('Error creating health log:', error);
       throw error;
     });
+};
+export const deleteHealthLogById = (id) => {
+  return HealthLog.findByIdAndDelete(id)
+      .then((healthLog) => healthLog ? healthLog.toObject() : null)
+      .catch((error) => {
+          console.error('Error deleting health log:', error);
+          throw error;
+      });
 };

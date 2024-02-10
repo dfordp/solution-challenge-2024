@@ -14,7 +14,8 @@ import authRoute from "./routers/auth.router.js"
 import socialAuthRoute from "./routers/social.router.js"
 import userRoute from "./routers/user.router.js"
 import plantRoute from './routers/plant.router.js'
-
+import healthLogRoute from "./routers/healthlogs.router.js"
+import taskRoute from "./routers/task.router.js"
 
 const app=express();
 app.use(cors());
@@ -30,6 +31,8 @@ app.use("/api/auth" , authRoute)
 app.use("/api/socialauth", socialAuthRoute)
 app.use("/api/user", userRoute);
 app.use("/api/plant", plantRoute)
+app.use("/api/healthlog",healthLogRoute)
+app.use("/api/task",taskRoute)
 
 
 const startServer=async()=>{
