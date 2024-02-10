@@ -1,4 +1,3 @@
-import express from 'express';
 
 import { deleteUserById, getUsers, getUserById } from '../mongodb/models/user.js';
 
@@ -47,9 +46,9 @@ export const getAllUsers = async (req, res) => {
   export const updateUser = async (req, res) => {
     try {
       const { id } = req.params;
-      const { email, authentication, hasSocialLogin, plantIds } = req.body;
+      const { email} = req.body;
   
-      if (!email && !authentication && !hasSocialLogin && !plantIds) {
+      if (!email){
         return res.sendStatus(400);
       }
   
@@ -61,18 +60,6 @@ export const getAllUsers = async (req, res) => {
   
       if (email) {
         user.email = email;
-      }
-  
-      if (authentication) {
-        user.authentication = authentication;
-      }
-  
-      if (hasSocialLogin) {
-        user.hasSocialLogin = hasSocialLogin;
-      }
-  
-      if (plantIds) {
-        user.plantIds = plantIds;
       }
   
       await user.save();

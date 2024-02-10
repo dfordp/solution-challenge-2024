@@ -6,10 +6,10 @@ import { isAuthenticated, isOwner } from '../middleware/index.js';
 
 const router = express.Router();
 
-router.route('/getUsers').get(isAuthenticated, getAllUsers);
-router.route('/getUser/:id').get(isAuthenticated, isOwner, getUser);
-router.route('/deleteUser/:id').delete(isAuthenticated, isOwner, deleteUser);
-router.route('/updateUser/:id').patch(isAuthenticated, isOwner, updateUser);
+router.route('/getUsers').get(getAllUsers);
+router.route('/getUser/:id').get(getUser);
+router.route('/deleteUser/:id').delete(deleteUser);
+router.route('/updateUser/:id').patch(updateUser);
 
 export default router;
 

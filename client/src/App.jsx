@@ -52,7 +52,6 @@ function App() {
           <div className="flex justify-center items-center w-[1282px]">
             <TopBar/>
           </div>
-          {/* <NavigationHandler /> */}
           <Routes>
             <Route path="/auth" element={<Auth />} />
             <Route path="/" element={<Home />} />

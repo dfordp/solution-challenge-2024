@@ -1,9 +1,6 @@
 import mongoose from "mongoose";
 
 
-const mongoose = require('mongoose');
-
-
 const plantSchema = new mongoose.Schema({
     name: {
       type: String,
@@ -17,6 +14,10 @@ const plantSchema = new mongoose.Schema({
     dateOfPlanting: {
       type: Date,
       required: true
+    },
+    comment: {
+      type: String,
+      required: false
     },
     taskIds: [{
         type: mongoose.Schema.Types.ObjectId,

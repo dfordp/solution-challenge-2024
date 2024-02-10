@@ -13,7 +13,7 @@ import connectDB from "./mongodb/connect.js";
 import authRoute from "./routers/auth.router.js"
 import socialAuthRoute from "./routers/social.router.js"
 import userRoute from "./routers/user.router.js"
-
+import plantRoute from './routers/plant.router.js'
 
 
 const app=express();
@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
 app.use("/api/auth" , authRoute)
 app.use("/api/socialauth", socialAuthRoute)
 app.use("/api/user", userRoute);
-
+app.use("/api/plant", plantRoute)
 
 
 const startServer=async()=>{
