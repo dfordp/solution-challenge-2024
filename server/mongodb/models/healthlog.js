@@ -15,7 +15,12 @@ const healthLogSchema = new mongoose.Schema({
     },
     required: true
   },
-  plantId: { // New field
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  plantId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Plant',
     required: true
