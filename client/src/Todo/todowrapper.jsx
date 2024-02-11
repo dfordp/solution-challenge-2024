@@ -13,8 +13,8 @@ const getlocaldata = () => {
 }
 export const Todowrapper = () => {
   const [todos, setTodos] = useState(getlocaldata())
-  const addTodo = todo => {
-    setTodos([...todos, { id: uuidv4(), task: todo, plantName: todo, completed: false, isEditing: false }])
+  const addTodo = (task,plantName) => { 
+    setTodos([...todos, { id: uuidv4(), task: task, plantName: plantName, completed: false, isEditing: false }])
     console.log(todos)
   }
   const toggleComplete = id => {
