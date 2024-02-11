@@ -86,8 +86,7 @@ const Auth = () => {
  
 
   return (
-    <div className='flex justify-center items-center flex-row mx-40 py-3 mt-10 rounded-xl shadow-xl border border-gray-200 font-sans'>
-      <div className='flex flex-col bg-white w-[450px]'>
+      <div className='flex justify-center items-center w-[900px] mx-auto py-3 mt-10 rounded-xl shadow-xl border border-gray-200 font-sans' style={{height: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>      <div className='flex flex-col bg-white w-[450px]'>
         <h3 className='font-bold flex flex-row items-center justify-center pt-3 -ml-10'>
           Tree Troopers
         </h3>

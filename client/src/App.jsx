@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
@@ -10,10 +10,12 @@ import Checkups from './pages/Checkups';
 
 import SideBar from "./components/Sidebar";
 import TopBar from "./components/Topbar";
-import { PlantForm } from "./pages/form";
+import PlantForm  from "./pages/form";
 
-const NavigationHandler = ()=> {
+const NavigationHandler = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const cookies = document.cookie.split('; ');
@@ -27,42 +29,58 @@ const NavigationHandler = ()=> {
         idCookieExists = true;
         const req = value;
         if(req){
-          navigate('/');
+          setIsAuthenticated(true);
+          if(location.pathname === '/auth'){
+            navigate('/');
+          }
         }
         break;
       }
     }
 
     if (!idCookieExists) {
+      setIsAuthenticated(false);
       navigate('/auth');
     }
-  }, [navigate]);
+  }, [navigate, location]);
 
-  return null;
-}
+  return (
+    <div className="fonts-sans flex flex-row bg-white">
+      {isAuthenticated && (
+        <>
+          <div>
+            <SideBar/>
+          </div>
+          <div className="flex flex-col w-full">
+            <div className="flex justify-center items-center w-[1282px]">
+              <TopBar/>
+            </div>
+            <div className="w-full">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/plants" element={<PlantPage />} />
+                <Route path="/settings" element={<SettingsPage />} />
+                <Route path="/tasks" element={<TasksPage />} />
+                <Route path="/checkups" element={<Checkups/>} />
+                <Route path="/contact" element={<PlantForm/>} />
+              </Routes>    
+            </div>
+          </div>
+        </>
+      )}
+      {!isAuthenticated && (
+        <Routes>
+          <Route path="/auth" element={<Auth />} />
+        </Routes>
+      )}
+    </div>
+  );
+};
 
 function App() {
   return (
     <Router>
-      <div className="fonts-sans flex flex-row bg-white">
-        <div>
-          <SideBar/>
-        </div>
-        <div className="flex flex-col">
-          <div className="flex justify-center items-center w-[1282px]">
-            <TopBar/>
-          </div>
-          <Routes>
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/plants" element={<PlantPage />} />
-            <Route path="/settings" element={<SettingsPage />} />
-            <Route path="/tasks" element={<TasksPage />} />
-            <Route path="/checkups" element={<Checkups/>} />
-            <Route path="/contact" element={<PlantForm/>} />
-          </Routes>    
-        </div>
-      </div>
+      <NavigationHandler />
     </Router>
   );
 }

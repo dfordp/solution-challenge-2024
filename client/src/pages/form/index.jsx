@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-export const PlantForm = () => {
+
+const PlantForm = () => {
     const defaultImage = 'https://cdn.discordapp.com/attachments/1080886691067338815/1205841800234016798/image.png?ex=65d9d6b0&is=65c761b0&hm=14b8fd00ee032a4cb352c529d38eade498d4280e254033647c9f86c133ee5c3a&';
 
     const [imagePreview, setImagePreview] = useState(defaultImage);
@@ -37,3 +38,5 @@ export const PlantForm = () => {
         </div>
     );
 };
+
+export default PlantForm;

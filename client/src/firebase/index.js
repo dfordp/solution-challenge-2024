@@ -4,7 +4,13 @@ import axios from "axios";
 
 
 const firebaseConfig = {
-
+    apiKey: "AIzaSyB0n5JNYBIaQ5fgrPmfRrZ7MCuxdykaN70",
+    authDomain: "tree-trooper.firebaseapp.com",
+    projectId: "tree-trooper",
+    storageBucket: "tree-trooper.appspot.com",
+    messagingSenderId: "47571234524",
+    appId: "1:47571234524:web:0e71675429e312819d8e19",
+    measurementId: "G-4LR9TB5M7M"
   };
 
 
