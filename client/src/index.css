@@ -137,7 +137,7 @@ textarea {
 }
 
 form.Todoform {
-  background: grey;
+  background: rgb(121, 121, 121);
   font-size: 25px;
   border: 2px solid grey;
   border-radius: 5rem;
@@ -152,7 +152,7 @@ form.Todoform {
 }
 
 input#todoInput,input#plantInput {
-  color: gray;
+  color: rgb(125, 118, 118);
   border-radius: 5rem;
   padding: 0.25em 1em;
   margin: 0em .75em;
