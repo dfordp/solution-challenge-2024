@@ -1,4 +1,4 @@
-import { Todowrapper } from "../../Todo/todowrapper"
+import { Todowrapper } from "../Todo/todowrapper"
 
 const TaskPage = () => {
   return (

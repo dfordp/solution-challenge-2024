@@ -29,15 +29,16 @@ export const getHealthLog = async (req, res) => {
 
 export const createNewHealthLog = async (req, res) => {
     try {
-        const {diagnosisByModel, imageAddedByUser, plantId} = req.body;
+        const {diagnosisByModel, imageAddedByUser, userId ,plantId} = req.body;
 
-        if(!diagnosisByModel || !imageAddedByUser || !plantId){
+        if(!diagnosisByModel || !imageAddedByUser || !userId || !plantId){
             return res.sendStatus(400);
         }
 
         const newHealthLog = await createHealthLog({
             diagnosisByModel: diagnosisByModel,
             imageAddedByUser: imageAddedByUser,
+            userId : userId,
             plantId: plantId
         });
         

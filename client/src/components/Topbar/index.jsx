@@ -25,20 +25,21 @@ const TopBar = () => {
         <div className="flex items-center justify-center rounded-full p-2">
         <button 
           className="bg-gray-300 hover:bg-gray-400 rounded-full p-2 transition duration-200"
-          onClick={() => console.log('Add Plant')}
+          onClick={() => {
+            navigate("/addCheckup")
+          }}
         >
-          <IoLeafSharp opacity={0.5}/>
+          <IoIosMedical opacity={0.5}/>
         </button>
       </div>
       <div className="flex items-center justify-center rounded-full p-2">
         <button 
           className="bg-gray-300 hover:bg-gray-400 rounded-full p-2 transition duration-200"
           onClick={() => {
-            console.log('check time');
-            navigate('/contact')
+            navigate('/addPlant')
           }}
         >
-          <IoIosMedical opacity={0.5} />
+          <IoLeafSharp opacity={0.5} />
         </button>
       </div>
           <div className="flex items-center justify-center bg-gray-200 rounded-full p-2">

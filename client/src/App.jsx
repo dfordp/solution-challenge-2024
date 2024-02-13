@@ -10,7 +10,8 @@ import Checkups from './pages/Checkups';
 
 import SideBar from "./components/Sidebar";
 import TopBar from "./components/Topbar";
-import PlantForm  from "./pages/form";
+import PlantForm  from "./pages/AddPlant";
+import AddCheckup from "./pages/AddCheckup";
 
 const NavigationHandler = () => {
   const navigate = useNavigate();
@@ -62,8 +63,9 @@ const NavigationHandler = () => {
                 <Route path="/settings" element={<SettingsPage />} />
                 <Route path="/tasks" element={<TasksPage />} />
                 <Route path="/checkups" element={<Checkups/>} />
-                <Route path="/contact" element={<PlantForm/>} />
-              </Routes>    
+                <Route path="/addPlant" element={<PlantForm/>} />
+                <Route path="/addCheckup" element={<AddCheckup/>}/>
+               </Routes>    
             </div>
           </div>
         </>
