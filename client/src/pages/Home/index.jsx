@@ -1,4 +1,6 @@
-// Define the reusable component
+import CheckupComponent from "../Checkups/components/CheckupComponent";
+import PlantComponent from "../Plants/components/PlantComponent"
+
 const Section = ({ title, value }) => (
   <div className="bg-gray-200 w-[325px] h-[150px] px-4 pt-3 pb-2 font-light rounded-md outline">
     {title}:
@@ -24,10 +26,22 @@ const Home = () => {
       <div className="mx-4 my-6 text-3xl font-bold">
         Home
       </div>
-      <div className="grid grid-cols-3 gap-4 justify-items-center items-center">
+      <div className="px-8 grid grid-cols-3 gap-4 justify-items-center items-center">
         {sections.map((section, index) => (
           <Section key={index} title={section.title} value={section.value} />
         ))}
+      </div>
+      <div className="mx-4 my-6 text-2xl font-bold">
+                Plants
+      </div>
+      <div className="mx-4">
+          <PlantComponent/>
+      </div>
+      <div className="mx-4 my-6 text-2xl font-bold">
+            HealthLogs
+      </div>
+      <div className="mx-4">
+          <CheckupComponent/>
       </div>
     </div>
   );

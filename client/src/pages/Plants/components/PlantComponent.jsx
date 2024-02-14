@@ -1,9 +1,13 @@
 import { IoFlower, IoLeaf } from 'react-icons/io5';
+import { useNavigate } from 'react-router-dom';
 
 
 const PlantComponent = () => {
+
+  const navigate = useNavigate();
+
   return (
-    <div className="flex flex-col bg-gray-100 border border-gray-300 w-[400px] mx-1 px-3 py-3 rounded-md">
+    <div onClick={()=>{navigate('/plant/:id')}} className="flex flex-col bg-gray-100 border border-gray-300 w-[400px] mx-1 px-3 py-3 rounded-md">
       {/* <img src={plant.imageUrl} alt=Image />
       <h2>{plant.name}</h2>
       <p>Date of Planting: {plant.dateOfPlanting}</p> */}

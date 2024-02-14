@@ -197,3 +197,27 @@ button.input-todo-button {
 .Todo svg{
   cursor: pointer;
 }
+
+.sidebar {
+  position: fixed;
+  width: 250px; /* Adjust as needed */
+  height: 100%;
+  overflow: auto;
+}
+
+.content {
+  margin-left: 250px; /* Same as the width of your sidebar */
+}
+
+.topbar {
+  position: fixed;
+  width: calc(100% - 250px); 
+  height: 100px; 
+  padding: 10px 0; 
+}
+
+.routes {
+  margin-top: 100px; 
+  overflow: auto;
+  height: calc(100% - 100px);
+}

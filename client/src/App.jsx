@@ -12,6 +12,8 @@ import SideBar from "./components/Sidebar";
 import TopBar from "./components/Topbar";
 import PlantForm  from "./pages/AddPlant";
 import AddCheckup from "./pages/AddCheckup";
+import HelpPage from "./pages/Help";
+import PlantInfo from "./pages/PlantInfo";
 
 const NavigationHandler = () => {
   const navigate = useNavigate();
@@ -49,22 +51,24 @@ const NavigationHandler = () => {
     <div className="fonts-sans flex flex-row bg-white">
       {isAuthenticated && (
         <>
-          <div>
+          <div className="sidebar">
             <SideBar/>
           </div>
-          <div className="flex flex-col w-full">
-            <div className="flex justify-center items-center w-[1282px]">
+          <div className="flex flex-col w-full content">
+            <div className="flex justify-center items-center w-[1282px] topbar">
               <TopBar/>
             </div>
-            <div className="w-full">
+            <div className="w-full routes">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/plants" element={<PlantPage />} />
+                <Route path="/plant/:id" element={<PlantInfo/>}/>
                 <Route path="/settings" element={<SettingsPage />} />
                 <Route path="/tasks" element={<TasksPage />} />
                 <Route path="/checkups" element={<Checkups/>} />
                 <Route path="/addPlant" element={<PlantForm/>} />
                 <Route path="/addCheckup" element={<AddCheckup/>}/>
+                <Route path="/help" element={<HelpPage/>}/>
                </Routes>    
             </div>
           </div>
